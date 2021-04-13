@@ -7,7 +7,8 @@ sudo apt-get install -y lxc libvirt-daemon libvirt-dev libvirt-daemon-driver-lxc
 sudo sed -i 's#unix_sock_group = "libvirt"#unix_sock_group = "docker"#g' /etc/libvirt/libvirtd.conf
 sudo systemctl restart libvirtd.service
 
-cat /etc/libvirt/libvirtd.conf
+ls -alh /var/run/libvirt/
+
 
 groups $(whoami)
 
