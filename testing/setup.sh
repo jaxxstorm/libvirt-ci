@@ -4,10 +4,10 @@ set -x -ef -o pipefail
 sudo apt-get update
 sudo apt-get install -y lxc libvirt-daemon libvirt-dev libvirt-daemon-driver-lxc libvirt-daemon-system
 
-sed -i 's#unix_sock_group = "libvirt"#unix_sock_group = "docker"#g' /etc/libvirt/libvirtd.conf
+sudo sed -i 's#unix_sock_group = "libvirt"#unix_sock_group = "docker"#g' /etc/libvirt/libvirtd.conf
 sudo systemctl restart libvirtd.service
 
-sudo cat /etc/libvirt/libvirtd.conf
+cat /etc/libvirt/libvirtd.conf
 
 groups $(whoami)
 
