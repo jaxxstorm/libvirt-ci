@@ -4,12 +4,10 @@ set -x -ef -o pipefail
 sudo apt-get update
 sudo apt-get install -y lxc libvirt-daemon libvirt-dev libvirt-daemon-driver-lxc libvirt-daemon-system
 
-id
-
-groups $(id)
-
 sudo usermod -a -G libvirt $(whoami)
 sudo systemctl restart libvirtd.service
+
+groups $(id)
 
 cat /etc/libvirt/libvirtd.conf
 
