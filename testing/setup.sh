@@ -4,10 +4,12 @@ set -x -ef -o pipefail
 sudo apt-get update
 
 sudo mkdir -p /etc/systemd/system/libvirtd.socket.d/
-sudo cat << EOF > /etc/systemd/system/libvirtd.socket.d/override.conf
+cat << EOF > /tmp/override.conf
 [Socket]
 SocketGroup=docker
 EOF
+
+sudo mv /tmp/override.conf /etc/systemd/system/libvirtd.socket.d/
 
 sudo apt-get install -y lxc libvirt-daemon libvirt-dev libvirt-daemon-driver-lxc libvirt-daemon-system
 
