@@ -3,8 +3,8 @@ set -x -ef -o pipefail
 
 sudo apt-get update
 
-mkdir -p /etc/systemd/system/libvirtd.socket.d/
-cat << EOF > /etc/systemd/system/libvirtd.socket.d/override.conf
+sudo mkdir -p /etc/systemd/system/libvirtd.socket.d/
+sudo cat << EOF > /etc/systemd/system/libvirtd.socket.d/override.conf
 [Socket]
 SocketGroup=docker
 EOF
