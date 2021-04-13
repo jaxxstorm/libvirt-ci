@@ -7,7 +7,7 @@ sudo apt-get install -y lxc libvirt-daemon libvirt-dev libvirt-daemon-driver-lxc
 sudo usermod -a -G libvirt $(whoami)
 sudo systemctl restart libvirtd.service
 
-groups $(id)
+groups $(whoami)
 
 cat /etc/libvirt/libvirtd.conf
 
